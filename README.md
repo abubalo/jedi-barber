@@ -14,7 +14,7 @@ Visit [jedi.vercel.app](https://jedi.vercel.app/) to see the application in acti
 
 ## Installation
 To run the application locally, follow these steps:
-1. Clone the repository: `git clone https://github.com/username/jedi-barber.git`
+1. Clone the repository: `git clone https://github.com/abubalo/jedi-barber.git`
 2. Install dependencies: `npm install`
 3. Create a `.env.local` file and add your MongoDB and Stripe API keys:
 
