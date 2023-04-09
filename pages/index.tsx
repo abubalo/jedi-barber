@@ -1,9 +1,14 @@
-import Head from 'next/head'
-import { Inter } from '@next/font/google'
+import Head from "next/head";
+import { Space_Grotesk } from "@next/font/google";
+import { useState } from "react";
+import Header from "@/components/Header";
+import { motion } from "framer-motion";
 
-const inter = Inter({ subsets: ['latin'] })
+const SpaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
 export default function Home() {
+  const text = "Top-rated hair styling salon in Kigali.";
+  const textChars = text.split("");
   return (
     <>
       <Head>
@@ -12,9 +17,26 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        Hello there
+      <Header />
+      <main className="w-full h-screen bg-no-repeat bg-cover bg-hero font-body">
+        <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-screen bg-black bg-opacity-80 z-1"></div>
+        <div className="container relative z-10 flex items-end h-screen pb-20 mx-auto">
+          <motion.h1 className="w-1/2 font-bold text-white uppercase text-7xl text-clip">
+            {textChars.map((char, i) => (
+              <motion.span
+                initial={{ opacity: 0, y: '10%'  }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, ease: "easeIn" }}
+                key={i}
+                className="text-clip bg-clip-content"
+              >
+                {char}
+              </motion.span>
+            ))}
+          </motion.h1>
+        </div>
       </main>
     </>
-  )
+  );
 }
+/* <Modal isOpen={isOpen}  setIsOpen={setIsOpen} >Hello there</Modal> */

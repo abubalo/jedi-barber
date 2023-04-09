@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
+import Header from './Header'
 
-type Props = {}
+type Props ={children: ReactNode}
 
-const Layout = (props: Props) => {
+const Layout = ({children}: Props) => {
   return (
-    <div>Layout</div>
+    <div>
+      <Header />
+      {children}
+    </div>
   )
 }
 
