@@ -5,7 +5,7 @@ import DownIcon from "../icons/MoreOptionIcon";
 // import { Icon } from "@iconify/react";
 import Time from "./Time";
 
-type Props = {};
+
 
 const Calender = () => {
   const [startDate, setStartDate] = useState(new Date());
