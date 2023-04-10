@@ -3,6 +3,7 @@ import { Space_Grotesk } from "@next/font/google";
 import { useState } from "react";
 import Header from "@/components/Header";
 import { motion } from "framer-motion";
+import Overlay from "@/components/Overlay";
 
 const SpaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
@@ -19,7 +20,7 @@ export default function Home() {
       </Head>
       <Header />
       <main className="w-full h-screen bg-no-repeat bg-cover bg-hero font-body">
-        <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-screen bg-black bg-opacity-80 z-1"></div>
+        <Overlay />
         <div className="container relative z-10 flex items-end h-screen pb-20 mx-auto">
           <motion.h1 className="w-1/2 font-bold text-white uppercase text-7xl text-clip">
             {textChars.map((char, i) => (

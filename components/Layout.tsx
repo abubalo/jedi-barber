@@ -1,15 +1,16 @@
-import React, { ReactNode } from 'react'
-import Header from './Header'
+import { AnimatePresence } from "framer-motion";
+import React, { ReactNode } from "react";
+import Header from "./Header";
 
-type Props ={children: ReactNode}
+type Props = { children: ReactNode };
 
-const Layout = ({children}: Props) => {
+const Layout = ({ children }: Props) => {
   return (
-    <div>
+    <AnimatePresence>
       <Header />
       {children}
-    </div>
-  )
-}
+    </AnimatePresence>
+  );
+};
 
-export default Layout
+export default Layout;

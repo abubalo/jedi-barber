@@ -8,6 +8,8 @@
 # testing
 /coverage
 
+# doc file
+*.doc
 # next.js
 /.next/
 /out/
