@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NextIcon from "../icons/NextIcon";
+import NextIcon from "../icons/BackwardIcon";
 import HairStyleCard from "./HairStylesCard";
 
 type Props = {};
