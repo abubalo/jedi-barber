@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {motion} from "framer-motion"
 import Check from "../icons/CheckIcon";
 
@@ -43,7 +44,7 @@ const BarberCard = ({
         </motion.div>
       )}
       <div className="w-24 h-24 overflow-hidden rounded-md">
-        <img src={src} alt="barber" className="bg-pink-500 bg-cover aspect-square" />
+        <Image src={src} alt="barber" className="bg-pink-500 bg-cover aspect-square" />
       </div>
       <div className="">
         <p>{name}</p>

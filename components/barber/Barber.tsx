@@ -54,13 +54,13 @@ const Barber = (props: Props) => {
   }
 
   return (
-    <div className="space-y-2">
-      <div className="flex items-center justify-between p-2 border-b">
+    <div className="space-y-2 ">
+      <div className="sticky top-0 z-20 flex items-center justify-between p-2 bg-white border-b">
         <h1 className="text-xl font-semibold">Choose Professionals</h1>
         <CancelIcon />
       </div>
 
-      <div className="grid grid-cols-2 gap-2 ">
+      <div className="grid grid-cols-2 gap-2 px-4 ">
         {data.map((barber) => (
           <BarberCard
             key={barber.id}
