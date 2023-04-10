@@ -2,7 +2,6 @@ import React from "react";
 import Barber from "../barber/Barber";
 import Button from "../Button";
 import Calender from "../calender/Calender";
-import CustomCalendar from "../calender/CustomeCalender";
 import HairStyleGallery from "./HairStyleGallery";
 
 type Props = {};
