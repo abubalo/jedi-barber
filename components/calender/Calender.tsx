@@ -7,7 +7,7 @@ import Time from "./Time";
 
 type Props = {};
 
-const Calender = (props: Props) => {
+const Calender = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<null | number>(null);
 
