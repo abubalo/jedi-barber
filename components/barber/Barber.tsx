@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CancelIcon from "../icons/CancelIcon";
 import BarberCard from "./BarberCard";
+import {motion} from "framer-motion"
 
 interface Barber {
   id: number;
@@ -9,7 +10,7 @@ interface Barber {
   available: boolean;
 }
 
-type Props = {};
+
 
 const data: Barber[] = [
   {
@@ -45,7 +46,7 @@ const data: Barber[] = [
   },
 ];
 
-const Barber = (props: Props) => {
+const Barber = () => {
   const [selected, setSelected] = useState<number | null>(null);
 
   function handleSelected(barberId: number) {
@@ -54,13 +55,26 @@ const Barber = (props: Props) => {
   }
 
   return (
-    <div className="space-y-2 ">
-      <div className="sticky top-0 z-20 flex items-center justify-between p-2 bg-white border-b">
+    <motion.div 
+    initial={{translateX: 100}}
+    animate={{translateX:0}}
+    exit={{translateX: -100}}
+    transition={{ease: "backInOut"}}
+    className="space-y-2 ">
+      <motion.div 
+      initial={{translateY: -50}}
+      animate={{translateY: 0}}
+      exit={{translateY: -50}}
+      transition={{ease: "linear"}}
+      className="sticky top-0 z-20 flex items-center justify-between p-2 bg-white border-b">
         <h1 className="text-xl font-semibold">Choose Professionals</h1>
         <CancelIcon />
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-2 gap-2 px-4 ">
+      <motion.div 
+      initial={{opacity: 0, translateY: 20}}
+      animate={{opacity: 1, translateY: 0}}
+      className="grid grid-cols-2 gap-2 px-4 ">
         {data.map((barber) => (
           <BarberCard
             key={barber.id}
@@ -71,8 +85,8 @@ const Barber = (props: Props) => {
             onSelected={() => handleSelected(barber.id)}
           />
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
