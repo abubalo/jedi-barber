@@ -44,7 +44,7 @@ const HairStyleCard = ({
         </motion.div>
       )}
       <div className="w-24 h-24 overflow-hidden rounded-md">
-        <Image src={src} alt="barber" className="bg-pink-500 bg-cover aspect-square" />
+        <Image src={src} width={100} height={100} alt="barber" className="bg-pink-500 bg-cover aspect-square" />
       </div>
       <div className="">
         <p>{name}</p>
