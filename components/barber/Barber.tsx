@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CancelIcon from "../icons/CancelIcon";
 import BarberCard from "./BarberCard";
+import NextIcon from "../icons/NextIcon"
 import {motion} from "framer-motion"
 
 interface Barber {
@@ -46,7 +46,10 @@ const data: Barber[] = [
   },
 ];
 
-const Barber = () => {
+type Props={
+  onNextStep: ()=> void;
+}
+const Barber = ({onNextStep}: Props) => {
   const [selected, setSelected] = useState<number | null>(null);
 
   function handleSelected(barberId: number) {
@@ -56,19 +59,22 @@ const Barber = () => {
 
   return (
     <motion.div 
-    initial={{translateX: 100}}
+    initial={{translateX: "100%"}}
     animate={{translateX:0}}
-    exit={{translateX: -100}}
-    transition={{ease: "backInOut"}}
+    exit={{translateX: "-100%"}}
+    transition={{ease: "easeInOut", duration: 0.7}}
+    
     className="space-y-2 ">
       <motion.div 
-      initial={{translateY: -50}}
+      initial={{translateY: -100}}
       animate={{translateY: 0}}
-      exit={{translateY: -50}}
-      transition={{ease: "linear"}}
+      exit={{translateY: -100}}
+      transition={{ease: "linear", duration: 0.5}}
       className="sticky top-0 z-20 flex items-center justify-between p-2 bg-white border-b">
         <h1 className="text-xl font-semibold">Choose Professionals</h1>
-        <CancelIcon />
+        <span onClick={onNextStep} className="p-2 bg-gray-100 rounded-full">
+          <NextIcon />
+        </span>
       </motion.div>
 
       <motion.div 

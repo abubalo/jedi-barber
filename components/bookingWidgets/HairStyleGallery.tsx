@@ -1,16 +1,23 @@
 import { useState } from "react";
-import NextIcon from "../icons/BackwardIcon";
+import BackwardIcon from "../icons/BackwardIcon";
+import NextIcon from "../icons/NextIcon";
+import PrevIcon from "../icons/PrevIcon";
 import HairStyleCard from "./HairStylesCard";
+import { motion } from "framer-motion";
 
-type Props = {};
+type Props = {
+  onNextStep: () => void;
+  onPrevStep: () => void;
+};
 
-interface HairStyles{
+interface HairStyles {
   id: number;
   name: string;
   time: string;
-  image:string;
+  image: string;
   price: number;
 }
+
 const hairStyles: HairStyles[] = [
   {
     id: 1,
@@ -84,7 +91,7 @@ const hairStyles: HairStyles[] = [
   },
 ];
 
-const HairStyleGallery = (props: Props) => {
+const HairStyleGallery = ({ onNextStep, onPrevStep }: Props) => {
   const [selected, setSelected] = useState<null | number>(null);
 
   function handleSelected(hairStyleId: number) {
@@ -92,25 +99,50 @@ const HairStyleGallery = (props: Props) => {
     console.log(hairStyleId);
   }
   return (
-    <div className="w-full h-full space-y-2">
+    <motion.div
+      initial={{ translateY: -100 }}
+      animate={{ translateY: 0 }}
+      exit={{ translateY: -100 }}
+      transition={{ ease: "linear", duration: 0.5 }}
+      className="w-full h-full space-y-2"
+    >
       <div className="sticky top-0 z-10 flex items-center justify-between p-2 bg-white border-b">
-        <NextIcon />
         <h1 className="text-xl font-semibold">Choose an hairstyle</h1>
+        <div className="flex gap-2">
+          <span
+            className="p-2 transform rotate-180 bg-gray-100 rounded-full cursor-pointer hover:bg-gray-50"
+            onClick={onPrevStep}
+          >
+            <NextIcon />
+          </span>
+          <span
+            className="p-2 transform rotate-180 bg-gray-100 rounded-full cursor-pointer hover:bg-gray-50"
+            onClick={onNextStep}
+          >
+            <PrevIcon />
+          </span>
+        </div>
       </div>
-      <div className="grid grid-cols-2 gap-2 p-4">
+      <motion.div
+        initial={{ translateY: -100 }}
+        animate={{ translateY: 0 }}
+        exit={{ translateY: -100 }}
+        transition={{ ease: "linear", duration: 0.5 }}
+        className="grid grid-cols-2 gap-2 p-4"
+      >
         {hairStyles.map((hairStyle) => (
           <HairStyleCard
             key={hairStyle.id}
             src={hairStyle.image}
             selected={selected == hairStyle.id}
-            onSelected={()=> handleSelected(hairStyle.id)}
+            onSelected={() => handleSelected(hairStyle.id)}
             name={hairStyle.name}
             time={hairStyle.time}
             price={hairStyle.price}
           />
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
