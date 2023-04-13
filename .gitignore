@@ -10,6 +10,7 @@
 
 # doc file
 *.doc
+*Time.js
 # next.js
 /.next/
 /out/
