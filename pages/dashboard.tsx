@@ -1,15 +1,4 @@
-// import React from 'react'
-
-// type Props = {}
-
-// const dashboard = (props: Props) => {
-//   return (
-//     <div>dashboard</div>
-//   )
-// }
-
-// export default dashboard
-
+import Image from "next/image";
 
 import { useState } from "react";
 // import "./Slider.css";
@@ -37,7 +26,7 @@ const Slider = () => {
     <div className="slider-container">
       <div className="slider-images" style={{ transform: `translateX(-${index * 100}%)` }}>
         {images.map((image, i) => (
-          <img key={i} src={image} alt={`Slide ${i + 1}`} />
+          <Image width={50} height={50} key={i} src={image} alt={`Slide ${i + 1}`} />
         ))}
       </div>
       <button className="slider-button prev" onClick={handlePrev}>
