@@ -1,20 +1,20 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Layout from "@/components/Layout";
+import { Page } from "./types/page";
+import { Fragment } from "react";
 
-export default function App({ Component, pageProps, router }: AppProps) {
-  // if (Component.name === "dashboard" || Component.name === "booking") {
-  //   return <Component {...pageProps} />;
-  // }
-  
-  if(router.pathname.startsWith("/dashboard") || router.pathname.startsWith("/dashboard")){
-      return <Component {...pageProps} />;
+type Props = AppProps & {
+  Component: Page;
+}
 
-  }
+export default function App({ Component, pageProps, router }: Props) {
+  const getLayout = Component.getLayout ?? (page => page);
+  const Layout = Component.layout ?? Fragment
 
   return (
     <Layout>
-      <Component {...pageProps} />
+      {getLayout(<Component {...pageProps} />)}
     </Layout>
   );
 }
