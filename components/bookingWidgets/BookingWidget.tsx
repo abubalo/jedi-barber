@@ -4,6 +4,7 @@ import Button from "../Button";
 import Calender from "../calender/Calender";
 import HairStyleGallery from "./HairStyleGallery";
 import Order from "../Order";
+import Payment from "../payment/Payment";
 
 type Props = {};
 
@@ -11,10 +12,11 @@ const BookingWidget = () => {
   const [index, setIndex] = useState(1);
   const [expand, setExpand] = useState(false);
 
-  const [barber, setBarber] = useState({});
+  const [staff, setStaff] = useState({});
   const [hairStyle, setHairStyle] = useState({});
-  const [date, setDate] = useState("");
-  const [payment, setPayment] = useState("");
+  const [day, setDay] = useState("");
+  const [time, setTime] = useState("");
+  const [hasPaid, setHasPaid] = useState(false);
 
 
   function handleNextStep() {
@@ -50,9 +52,12 @@ const BookingWidget = () => {
       <div className="">
         {index === 3 && <Calender onPrevStep={handlePrevStep} onNextStep={handleNextStep} />}
       </div>
+      <div className="">
+        {index === 4 && <Payment onPrevStep={handlePrevStep} onNextStep={handleNextStep} />}
+      </div>
 
       <div
-        className={`sticky bottom-0 w-full bg-gray-50 ${
+        className={`sticky bottom-0 w-full bg-gray-50 transition-all duration-200 ease-linear  ${
           expand ? "h-full" : "h-max"
         }`}
         onClick={() => setExpand(!expand)}
