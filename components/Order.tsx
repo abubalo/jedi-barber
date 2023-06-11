@@ -19,7 +19,7 @@ const Order = ({ barberName, barberImg, hairStyle, date, expand }: Props) => {
      
       <div className="flex gap-2 p-2 border-y">
         <span
-          className={`transform cursor-pointer ${
+          className={`transform cursor-pointer transition-all duration-200 ease-linear ${
             expand ? "rotate-0" : "rotate-180"
           }`}
         >
