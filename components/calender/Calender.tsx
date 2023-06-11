@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { format, addDays } from "date-fns";
-import {motion} from "framer-motion"
-// import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
 import Time from "./Time";
 import PrevIcon from "../icons/PrevIcon";
 import GetDays from "./Days";
+import NextIcon from "../icons/NextIcon";
 
 interface Days {
   day: string;
@@ -53,20 +53,9 @@ const Calender = ({ onPrevStep, onNextStep }: Props) => {
   }
 
   return (
-    <motion.div 
-    initial={{translateX: "100%"}}
-    animate={{translateX:0}}
-    exit={{translateX: "-100%"}}
-    transition={{ease: "easeInOut", duration: 0.7}}
-    className="w-full h-full"
-    >
-      <motion.div 
-      initial={{translateY: -100}}
-      animate={{translateY: 0}}
-      exit={{translateY: -100}}
-      transition={{ease: "linear", duration: 0.5}}
-      className="sticky top-0 z-10 flex items-center justify-between p-2 bg-white border-b">
-          <h1 className="text-xl font-semibold">Select time</h1>
+    <motion.div className="w-full h-full">
+      <motion.div className="sticky top-0 z-10 flex items-center justify-between p-2 bg-white border-b">
+        <h1 className="text-xl font-semibold">Select time</h1>
         <div className="flex gap-2">
           <span
             className="p-2 transform bg-gray-100 rounded-full cursor-pointer hover:bg-gray-50"
@@ -74,22 +63,27 @@ const Calender = ({ onPrevStep, onNextStep }: Props) => {
           >
             <PrevIcon />
           </span>
-          {/* <span
+          <span
             className="p-2 transform rotate-180 bg-gray-100 rounded-full cursor-pointer hover:bg-gray-50"
             onClick={onNextStep}
           >
             <NextIcon />
-          </span>  */}
+          </span> 
         </div>
       </motion.div>
-      
-      <GetDays
+      <motion.div
+        initial={{ x: 100 }}
+        animate={{ x: 0 }}
+        exit={{ x: -10 }}
+        // transition={{ duration: 0.2 }}
+      >
+        <GetDays
           setTime={setTime}
           setSelectedTime={setSelectedTime}
           time={time}
         />
+      </motion.div>
     </motion.div>
-    
   );
 };
 

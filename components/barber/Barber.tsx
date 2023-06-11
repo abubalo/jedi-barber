@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import BarberCard from "./BarberCard";
-import NextIcon from "../icons/NextIcon"
-import {motion} from "framer-motion"
+import NextIcon from "../icons/NextIcon";
+import { motion } from "framer-motion";
 
 interface Barber {
   id: number;
@@ -9,8 +9,6 @@ interface Barber {
   image: string;
   available: boolean;
 }
-
-
 
 const data: Barber[] = [
   {
@@ -46,41 +44,35 @@ const data: Barber[] = [
   },
 ];
 
-type Props={
-  onNextStep: ()=> void;
-}
-const Barber = ({onNextStep}: Props) => {
+type Props = {
+  onNextStep: () => void;
+};
+const Barber = ({ onNextStep }: Props) => {
   const [selected, setSelected] = useState<number | null>(null);
 
   function handleSelected(barberId: number) {
     setSelected(barberId);
-    console.log(barberId)
+    console.log(barberId);
   }
 
   return (
-    <motion.div 
-    initial={{translateX: "100%"}}
-    animate={{translateX:0}}
-    exit={{translateX: "-100%"}}
-    transition={{ease: "easeInOut", duration: 0.7}}
-    
-    className="space-y-2 ">
-      <motion.div 
-      initial={{translateY: -100}}
-      animate={{translateY: 0}}
-      exit={{translateY: -100}}
-      transition={{ease: "linear", duration: 0.5}}
-      className="sticky top-0 z-20 flex items-center justify-between p-2 bg-white border-b">
+    <motion.div className="space-y-2 ">
+      <motion.div
+        transition={{ ease: "linear", duration: 0.2 }}
+        className="sticky top-0 z-20 flex items-center justify-between p-2 bg-white border-b"
+      >
         <h1 className="text-xl font-semibold">Choose Professionals</h1>
         <span onClick={onNextStep} className="p-2 bg-gray-100 rounded-full">
           <NextIcon />
         </span>
       </motion.div>
 
-      <motion.div 
-      initial={{opacity: 0, translateY: 20}}
-      animate={{opacity: 1, translateY: 0}}
-      className="grid grid-cols-2 gap-2 px-4 ">
+      <motion.div
+        initial={{ x: 100 }}
+        animate={{ x: 0 }}
+        exit={{ x: -100 }}
+        className="grid grid-cols-2 gap-2 px-4 "
+      >
         {data.map((barber) => (
           <BarberCard
             key={barber.id}

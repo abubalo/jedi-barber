@@ -100,10 +100,10 @@ const HairStyleGallery = ({ onNextStep, onPrevStep }: Props) => {
   }
   return (
     <motion.div
-      initial={{ translateY: -100 }}
-      animate={{ translateY: 0 }}
-      exit={{ translateY: -100 }}
-      transition={{ ease: "linear", duration: 0.5 }}
+      // initial={{ opacity: 0}}
+      // animate={{ opacity: 1 }}
+      // exit={{ opacity: 0}}
+      // transition={{ ease: "linear" }}
       className="w-full h-full space-y-2"
     >
       <div className="sticky top-0 z-10 flex items-center justify-between p-2 bg-white border-b">
@@ -124,10 +124,10 @@ const HairStyleGallery = ({ onNextStep, onPrevStep }: Props) => {
         </div>
       </div>
       <motion.div
-        initial={{ translateY: -100 }}
-        animate={{ translateY: 0 }}
-        exit={{ translateY: -100 }}
-        transition={{ ease: "linear", duration: 0.5 }}
+        initial={{ x : -100 }}
+        animate={{ x : 0 }}
+        exit={{ x : -100 }}
+        // transition={{ duration: 0.2 }}
         className="grid grid-cols-2 gap-2 p-4"
       >
         {hairStyles.map((hairStyle) => (
