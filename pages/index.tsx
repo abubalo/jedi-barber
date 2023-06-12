@@ -8,7 +8,7 @@ import Overlay from "@/components/Overlay";
 const SpaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
 export default function Home() {
-  const text = "Top-rated hair styling salon in Kigali.";
+  const text = "Crafting Timeless Styles: Where Excellence Meets Elegance.";
   const textChars = text.split("");
   return (
     <>
