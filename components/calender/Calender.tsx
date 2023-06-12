@@ -55,7 +55,7 @@ const Calender = ({ onPrevStep, onNextStep }: Props) => {
   return (
     <motion.div className="w-full h-full">
       <motion.div className="sticky top-0 z-10 flex items-center justify-between p-2 bg-white border-b">
-        <h1 className="text-xl font-semibold">Select time</h1>
+        <h1 className="text-xl font-semibold">Select your schedule</h1>
         <div className="flex gap-2">
           <span
             className="p-2 transform bg-gray-100 rounded-full cursor-pointer hover:bg-gray-50"
