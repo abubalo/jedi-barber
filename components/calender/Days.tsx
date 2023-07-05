@@ -1,7 +1,5 @@
 import { format, addDays } from "date-fns";
 import React, { useState } from "react";
-import Time from "./Time";
-import DownIcon from "../icons/MoreOptionIcon";
 
 type Props = {
   time: string[];
@@ -38,11 +36,15 @@ const GetDays = ({ time, setTime, setSelectedTime }: Props) => {
       setSelectedTime(time);
     }
     setIsTimeSelected(index);
+    console.log(time);
   }
 
   function handleSelectedDay(index: number, day: string) {
+    console.log(day);
     setIsDaySelected(index)
   }
+
+  
   return (
     <>
       <div className="h-full p-4 bg-gray-50">
@@ -63,9 +65,9 @@ const GetDays = ({ time, setTime, setSelectedTime }: Props) => {
               </div>
             ))}
 
-            <span className="flex items-center justify-center p-2 bg-white border rounded-full cursor-pointer h-min ">
+            {/* <span className="flex items-center justify-center p-2 bg-white border rounded-full cursor-pointer h-min ">
               <DownIcon />
-            </span>
+            </span> */}
           </div>
           <div className="grid grid-cols-3 gap-2">
             {time.map((time, index) => (
@@ -78,7 +80,7 @@ const GetDays = ({ time, setTime, setSelectedTime }: Props) => {
                     : " "
                 } ${isTimeSelected === index ? "border-green-400" : ""}`}
               >
-                {time}
+                {new Date(time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
               </span>
             ))}
           </div>
