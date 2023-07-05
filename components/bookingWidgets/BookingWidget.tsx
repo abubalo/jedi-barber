@@ -18,7 +18,6 @@ const BookingWidget = () => {
   const [time, setTime] = useState("");
   const [hasPaid, setHasPaid] = useState(false);
 
-
   function handleNextStep() {
     setIndex(index + 1);
   }
@@ -44,29 +43,40 @@ const BookingWidget = () => {
           <HairStyleGallery
             onNextStep={handleNextStep}
             onPrevStep={handlePrevStep}
-          
           />
         )}
       </div>
 
       <div className="">
-        {index === 3 && <Calender onPrevStep={handlePrevStep} onNextStep={handleNextStep} />}
+        {index === 3 && (
+          <Calender onPrevStep={handlePrevStep} onNextStep={handleNextStep} />
+        )}
       </div>
       <div className="">
-        {index === 4 && <Payment onPrevStep={handlePrevStep} onNextStep={handleNextStep} />}
+        {index === 4 && (
+          <Payment
+            onPrevStep={handlePrevStep}
+            onNextStep={handleNextStep}
+            user={{ name: "Bryan Johnson", img: "/assets/barber1.jpg" }}
+            hairStyle={{ name: "Taper fade", price: 10 }}
+            date={"Oct. 12th at 1pm"}
+            duration={"45 minutes"}
+            expand={expand}
+          />
+        )}
       </div>
 
       <div
-        className={`sticky bottom-0 w-full bg-gray-50 transition-all duration-200 ease-linear  ${
+        className={`sticky bottom-0 w-full bg-gray-50 transition-all duration-200 ease-linear z-30  ${
           expand ? "h-full" : "h-max"
-        }`}
+        } ${index === 4 ? "hidden" : "block"}`}
         onClick={() => setExpand(!expand)}
       >
         <Order
-          barberName={"Kenzo"}
-          barberImg={"/src"}
-          hairStyle={{ name: "name", price: "$10" }}
-          date={""}
+          user={{ name: "Bryan Johnson", img: "/assets/barber1.jpg" }}
+          hairStyle={{ name: "Taper fade", price: 10 }}
+          date={"Oct. 12th at 1pm"}
+          duration={"45 minutes"}
           expand={expand}
         />
       </div>
