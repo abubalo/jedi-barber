@@ -42,7 +42,7 @@ function Header({}: Props) {
         </Link>
         <Link
           href={"/consultation"}
-          className="px-8 py-3 transition-all duration-150 border-2 border-white rounded-full cursor-pointer hover:text-black hover:bg-white"
+          className="px-8 py-3 transition-all duration-150 border-2 border-white rounded-full cursor-pointer hover:text-black hovergit:bg-white"
         >
           Consultation
         </Link>
